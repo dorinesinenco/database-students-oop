@@ -3,7 +3,7 @@ package data;
 import exceptions.*;
 import helpers.Validator;
 
-public class Person {
+public class Person implements PersonInterface {
 	String fullname;// - имя/фамилия ( валидация: min 5.. max 20 символов, обязательное присутствие 1 пробела не ближе чем 2 знака от каждого края)
 	Float age;// - возраст ( валидация: min 18 .. max 65 )
 	final private int maxAge=65;
@@ -38,6 +38,9 @@ public class Person {
 		if (Validator.checkRange(age.intValue(), minAge, maxAge))
 			this.age = age;
 		else throw new OutOfRangeException("возраст "+age+"(не проходит валидацию: min "+minAge+" .. max "+maxAge+" )");
+	}
+
+	public Person() {
 	}
 
 	@Override

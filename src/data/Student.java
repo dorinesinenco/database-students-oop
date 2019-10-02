@@ -20,6 +20,9 @@ public class Student extends Person{
 			this.mark = mark;
 		else throw new MarkException("средняя годовая оценка ="+mark+" ( валидация: "+minMark+" .. "+maxMark+" )");
 	}
+	public Student() {
+		super();
+	}
 	public Group getGroup() {
 		return group;
 	}

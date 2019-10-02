@@ -22,6 +22,9 @@ public class Teacher extends Person {
 			this.domains = domains;
 		else throw new ExperienceException("кол-во направлений в которых он обучает:"+domains.size()+" ( валидация: min 1 .. )");
 	}
+	public Teacher() {
+		super();
+	}
 	public Integer getExperience() {
 		return experience;
 	}

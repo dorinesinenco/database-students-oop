@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import exceptions.OutOfRangeException;
 import helpers.Validator;
 
-public class University {
+public class SingleUniversityFactory {
+	
+	private static SingleUniversityFactory instance = new SingleUniversityFactory();
 	String name;// - название университета ( валидация: min 3 .. max 30 )
 	private final int minNameLength = 3;
 	private final int maxNameLength = 30;
@@ -15,18 +17,41 @@ public class University {
 	ArrayList<Teacher> teachers;// - ссылка на список учителей университета
 	ArrayList<Student> students;// - ссылка на список студентов университета
 	
-	public University(String name, Administrator director, ArrayList<Group> groups, ArrayList<Domains> domains,
-			ArrayList<Teacher> teachers, ArrayList<Student> students) throws OutOfRangeException {
-		super();
-		if(Validator.checkRange(name.length(), minNameLength, maxNameLength))
-			this.name = name;
-		else throw new OutOfRangeException("длинна название университета:"+name.length()+" ( валидация: min "+minNameLength+" .. max "+maxNameLength+" )");
-		this.director = director;
-		this.groups = groups;
-		this.domains = domains;
-		this.teachers = teachers;
-		this.students = students;
+	private SingleUniversityFactory(){
+//		public SingleUniversityFactory(String name, Administrator director, ArrayList<Group> groups, ArrayList<Domains> domains,
+//				ArrayList<Teacher> teachers, ArrayList<Student> students) throws OutOfRangeException {
+//		super();
+//		if(Validator.checkRange(name.length(), minNameLength, maxNameLength))
+//			this.name = name;
+//		else throw new OutOfRangeException("длинна название университета:"+name.length()+" ( валидация: min "+minNameLength+" .. max "+maxNameLength+" )");
+		this.groups = new ArrayList<>();
+		this.domains = new ArrayList<>();
+		this.teachers = new ArrayList<>();
+		this.students = new ArrayList<>();
 	}
+	
+	//Это вызов сиглтона
+	public static SingleUniversityFactory getInstance() {
+		return instance;
+	}
+	
+	//Сигмент шабона Фабрика
+	public PersonInterface getNewPerson(String type) {
+		if (type==null) return null;
+		if (type.equalsIgnoreCase("STUDENT")) return new Student();
+		if (type.equalsIgnoreCase("TEACHER")) return new Teacher();
+		//TODO Имплементировать плохую логику
+		if (type.equalsIgnoreCase("FakeStudent")) return new Student();
+		if (type.equalsIgnoreCase("FakeTeacher")) return new Teacher();
+		
+		
+		return null;
+	}
+	
+	public GroupInterface GetNewGroup() {
+		return new Group();
+	}
+
 	public String getName() {
 		return name;
 	}
