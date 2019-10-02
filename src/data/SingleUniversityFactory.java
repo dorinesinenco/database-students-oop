@@ -41,8 +41,8 @@ public class SingleUniversityFactory {
 		if (type.equalsIgnoreCase("STUDENT")) return new Student();
 		if (type.equalsIgnoreCase("TEACHER")) return new Teacher();
 		//TODO Имплементировать плохую логику
-		if (type.equalsIgnoreCase("FakeStudent")) return new Student();
-		if (type.equalsIgnoreCase("FakeTeacher")) return new Teacher();
+		if (type.equalsIgnoreCase("FakeStudent")) return new FakeStudent();
+		if (type.equalsIgnoreCase("FakeTeacher")) return new FakeTeacher();
 		
 		
 		return null;
