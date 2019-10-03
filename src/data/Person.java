@@ -4,11 +4,11 @@ import exceptions.*;
 import helpers.Validator;
 
 public class Person implements PersonInterface {
-	String fullname;// - имя/фамилия ( валидация: min 5.. max 20 символов, обязательное присутствие 1 пробела не ближе чем 2 знака от каждого края)
+	String fullname;// - имя/фамилия ( валидация: min 5.. max 35 символов, обязательное присутствие 1 пробела не ближе чем 2 знака от каждого края)
 	Float age;// - возраст ( валидация: min 18 .. max 65 )
 	final private int maxAge=65;
 	final private int minAge=18;
-	final private int maxFullNameLen=20;
+	final private int maxFullNameLen=35;
 	final private int minFullNameLen=5;
 	public Float getAge() {
 		return age;
