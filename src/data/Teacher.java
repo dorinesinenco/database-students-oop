@@ -43,7 +43,7 @@ public class Teacher extends Person {
 	}
 	@Override
 	public String toString() {
-		return "Teacher [experience=" + experience + ", domains=" + domains + "]";
+		return "Teacher [experience=" + experience + ", domains.size=" + domains.size() +" ("+super.toString() +")]";
 	}
 	
 }
