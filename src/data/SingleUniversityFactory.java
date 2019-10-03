@@ -38,9 +38,9 @@ public class SingleUniversityFactory {
 	//Сигмент шабона Фабрика
 	public PersonInterface getNewPerson(String type) {
 		if (type==null) return null;
-		if (type.equalsIgnoreCase("STUDENT")) return new Student();
-		if (type.equalsIgnoreCase("TEACHER")) return new Teacher();
-		//TODO Имплементировать плохую логику
+		if (type.equalsIgnoreCase("Student")) return new Student();
+		if (type.equalsIgnoreCase("Teacher")) return new Teacher();
+		//Имплементировал классы для тестирование 
 		if (type.equalsIgnoreCase("FakeStudent")) return new FakeStudent();
 		if (type.equalsIgnoreCase("FakeTeacher")) return new FakeTeacher();
 		

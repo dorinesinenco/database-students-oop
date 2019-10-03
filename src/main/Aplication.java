@@ -4,15 +4,23 @@ import java.util.Locale;
 
 import com.github.javafaker.Faker;
 
+import data.FakeStudent;
+import data.FakeTeacher;
+import data.SingleUniversityFactory;
 import data.Student;
 
 public class Aplication {
 
 	public static void main(String[] args) {
+		SingleUniversityFactory singleUniversityFactory = SingleUniversityFactory.getInstance();
+		FakeStudent fSt = (FakeStudent)singleUniversityFactory.getNewPerson("FakeStudent");
+		System.out.println(fSt);
+		FakeTeacher fTh = (FakeTeacher)singleUniversityFactory.getNewPerson("FakeTeacher");
+		System.out.println(fTh);
 		
-		Faker faker= new Faker(new Locale("ru"));
-		String name = faker.name().fullName();
-		System.out.println(name);
+//		Faker faker= new Faker(new Locale("ru"));
+//		String name = faker.name().fullName();
+//		System.out.println(name);
 //		ArrayList<Student> students = new ArrayList<>();
 //		
 //		try {
