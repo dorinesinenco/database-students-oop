@@ -79,4 +79,8 @@ public class Person implements PersonInterface {
 		return true;
 	}
 	
+	public void assign(String fullname, Float age) throws FullNameFormatException, OutOfRangeException {
+		setFullname(fullname);
+		setAge(age);
+	}
 }

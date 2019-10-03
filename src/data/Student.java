@@ -56,5 +56,11 @@ public class Student extends Person{
 		return super.equals(obj);
 	}
 	
+	public void assign(String fullname, Float age, Float mark, Group group ) throws FullNameFormatException, OutOfRangeException, MarkException, NullException {
+		super.assign(fullname, age);
+		setMark(mark);
+		setGroup(group);
+	}
+	
 	
 }

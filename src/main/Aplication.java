@@ -1,22 +1,43 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import com.github.javafaker.Faker;
 
+import data.Domains;
 import data.FakeStudent;
 import data.FakeTeacher;
+import data.Group;
 import data.SingleUniversityFactory;
 import data.Student;
+import data.Teacher;
+import exceptions.FullNameFormatException;
+import exceptions.MarkException;
+import exceptions.NullException;
+import exceptions.OutOfRangeException;
 
 public class Aplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FullNameFormatException, OutOfRangeException, MarkException, NullException {
 		SingleUniversityFactory singleUniversityFactory = SingleUniversityFactory.getInstance();
+		
 		FakeStudent fSt = (FakeStudent)singleUniversityFactory.getNewPerson("FakeStudent");
 		System.out.println(fSt);
+		
 		FakeTeacher fTh = (FakeTeacher)singleUniversityFactory.getNewPerson("FakeTeacher");
 		System.out.println(fTh);
+		
+		Student st= (Student)singleUniversityFactory.getNewPerson("Student");
+		Group group = new Group();
+		group.setName("Группа 1");
+		st.assign("Вася Пекус", 20f, 5.5f, group);
+		System.out.println(st);
+		
+		Teacher tch	= (Teacher)singleUniversityFactory.getNewPerson("Teacher");
+		ArrayList<Domains> domains = new ArrayList<>();
+		tch.assign("Гульгуль Аглы", 23f, 2, domains);
+		System.out.println(tch);
 		
 //		Faker faker= new Faker(new Locale("ru"));
 //		String name = faker.name().fullName();
