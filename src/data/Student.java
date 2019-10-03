@@ -41,7 +41,7 @@ public class Student extends Person{
 	}
 	@Override
 	public String toString() {
-		return "Student [group=" + group.getName() + ", mark=" + mark + "]";
+		return "Student [group=" + group.getName() + ", mark=" + mark +" ("+super.toString() +")]";
 	}
 	public void removeGroup() {
 		this.group=null;
