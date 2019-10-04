@@ -20,6 +20,10 @@ public class Student extends Person{
 			this.mark = mark;
 		else throw new MarkException("средняя годовая оценка ="+mark+" ( валидация: "+minMark+" .. "+maxMark+" )");
 	}
+	public Student() {
+		super();
+	}
+	
 	public Group getGroup() {
 		return group;
 	}
@@ -53,5 +57,9 @@ public class Student extends Person{
 		return super.equals(obj);
 	}
 	
-	
+	public void assign(String fullname, Float age, Float mark, Group group ) throws FullNameFormatException, OutOfRangeException, MarkException, NullException {
+		super.assign(fullname, age);
+		setMark(mark);
+		setGroup(group);
+	}
 }

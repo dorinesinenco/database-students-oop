@@ -22,6 +22,11 @@ public class Teacher extends Person {
 			this.domains = domains;
 		else throw new ExperienceException("кол-во направлений в которых он обучает:"+domains.size()+" ( валидация: min 1 .. )");
 	}
+	
+	public Teacher() {
+		
+	}
+	
 	public Integer getExperience() {
 		return experience;
 	}
@@ -41,6 +46,12 @@ public class Teacher extends Person {
 	@Override
 	public String toString() {
 		return "Teacher [experience=" + experience + ", domains=" + domains + "]";
+	}
+	
+	public void assign(String fullname, Float age, Integer experience,ArrayList<Domains> domains) throws FullNameFormatException, OutOfRangeException, ExperienceException {
+		super.assign(fullname, age);
+		setExperience(experience);
+		setDomains(domains);
 	}
 	
 }
