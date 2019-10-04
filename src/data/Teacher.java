@@ -45,10 +45,10 @@ public class Teacher extends Person {
 	public String toString() {
 		return "Teacher [experience=" + experience + ", domains.size=" + domains.size() +" ("+super.toString() +")]";
 	}
-	public void assign(String fullname, Float age, Integer experience,ArrayList<Domains> domains) throws FullNameFormatException, OutOfRangeException {
+	public void assign(String fullname, Float age, Integer experience,ArrayList<Domains> domains) throws FullNameFormatException, OutOfRangeException, ExperienceException {
 		super.assign(fullname, age);
-		this.experience=experience;
-		this.domains=domains;
+		this.setExperience(experience);
+		this.setDomains(domains);
 	}
 	
 	

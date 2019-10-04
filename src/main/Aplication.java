@@ -12,6 +12,7 @@ import data.Group;
 import data.SingleUniversityFactory;
 import data.Student;
 import data.Teacher;
+import exceptions.ExperienceException;
 import exceptions.FullNameFormatException;
 import exceptions.MarkException;
 import exceptions.NullException;
@@ -19,7 +20,7 @@ import exceptions.OutOfRangeException;
 
 public class Aplication {
 
-	public static void main(String[] args) throws FullNameFormatException, OutOfRangeException, MarkException, NullException {
+	public static void main(String[] args) throws FullNameFormatException, OutOfRangeException, MarkException, NullException, ExperienceException {
 		SingleUniversityFactory singleUniversityFactory = SingleUniversityFactory.getInstance();
 		
 		FakeStudent fSt = (FakeStudent)singleUniversityFactory.getNewPerson("FakeStudent");
@@ -36,6 +37,7 @@ public class Aplication {
 		
 		Teacher tch	= (Teacher)singleUniversityFactory.getNewPerson("Teacher");
 		ArrayList<Domains> domains = new ArrayList<>();
+		domains.add(Domains.MATHS);
 		tch.assign("Гульгуль Аглы", 23f, 2, domains);
 		System.out.println(tch);
 		
