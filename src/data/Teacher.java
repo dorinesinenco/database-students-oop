@@ -1,10 +1,12 @@
-package data;
+ package data;
 
 import java.util.ArrayList;
 
 import exceptions.OutOfRangeException;
 import exceptions.ExperienceException;
 import exceptions.FullNameFormatException;
+import exceptions.MarkException;
+import exceptions.NullException;
 import helpers.Validator;
 
 public class Teacher extends Person {
@@ -22,6 +24,9 @@ public class Teacher extends Person {
 			this.domains = domains;
 		else throw new ExperienceException("кол-во направлений в которых он обучает:"+domains.size()+" ( валидация: min 1 .. )");
 	}
+	public Teacher() {
+		super();
+	}
 	public Integer getExperience() {
 		return experience;
 	}
@@ -38,6 +43,36 @@ public class Teacher extends Person {
 			this.domains = domains;
 		else throw new ExperienceException("кол-во направлений в которых он обучает:"+domains.size()+" ( валидация: min 1 .. )");
 	}
+	
+	
+
+	public void assign(  String fullname, Float age, Integer experience, ArrayList<Domains> domains){
+		try {
+			setAge(age);
+		} catch (OutOfRangeException e1) {
+			 
+			e1.printStackTrace();
+		}
+		try {
+			setFullname(fullname);
+		} catch (FullNameFormatException e) {
+			 
+			e.printStackTrace();
+		}
+		 try {
+			setExperience(experience);
+		} catch (ExperienceException e) {
+			e.printStackTrace();
+		}
+		try {
+			setDomains(domains);
+		} catch (ExperienceException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Teacher [experience=" + experience + ", domains=" + domains + "]";

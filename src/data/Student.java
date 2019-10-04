@@ -1,4 +1,4 @@
-package data;
+ package data;
 
 import exceptions.OutOfRangeException;
 import exceptions.FullNameFormatException;
@@ -20,6 +20,9 @@ public class Student extends Person{
 			this.mark = mark;
 		else throw new MarkException("средняя годовая оценка ="+mark+" ( валидация: "+minMark+" .. "+maxMark+" )");
 	}
+	public Student() {
+		super();
+	}
 	public Group getGroup() {
 		return group;
 	}
@@ -36,6 +39,40 @@ public class Student extends Person{
 			this.mark = mark;
 		else throw new MarkException("средняя годовая оценка ="+mark+" ( валидация: "+minMark+" .. "+maxMark+" )");
 	}
+	
+	
+	
+
+	public void assign( String fullname, Float age, Group group, Float mark){
+		try {
+			setAge(age);
+		} catch (OutOfRangeException e1) {
+			 
+			e1.printStackTrace();
+		}
+		try {
+			setFullname(fullname);
+		} catch (FullNameFormatException e) {
+			 
+			e.printStackTrace();
+		}
+		try {
+			setGroup(group);
+		} catch (NullException e) {
+			 
+			e.printStackTrace();
+		}
+		try {
+			setMark( mark);
+		} catch (MarkException e) {
+			e.printStackTrace();
+		}
+		 
+	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Student [group=" + group.getName() + ", mark=" + mark + "]";

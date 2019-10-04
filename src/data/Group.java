@@ -1,4 +1,4 @@
-package data;
+ package data;
 
 import java.util.HashSet;
 
@@ -6,7 +6,7 @@ import exceptions.NullException;
 import exceptions.OutOfRangeException;
 import helpers.Validator;
 
-public class Group {
+public class Group implements GroupInterface{
 	String name;// - имя группы ( валидация: min 5 .. max 30 )
 	Integer year;// - год / курс ( валидация: min 1 .. max 7 )
 	HashSet<Student> students;// - ссылка на список студентов группы
@@ -24,6 +24,8 @@ public class Group {
 			this.year = year;
 		else throw new OutOfRangeException("год / курс:"+year+" ( валидация: min "+minYear+" .. max "+maxYear+" )");
 		this.students = students;
+	}
+	public Group() {
 	}
 	public String getName() {
 		return name;
@@ -72,3 +74,4 @@ public class Group {
 	
 	
 }
+ 
