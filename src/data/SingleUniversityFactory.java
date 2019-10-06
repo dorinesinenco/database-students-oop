@@ -7,7 +7,7 @@ import helpers.Validator;
 
 public class SingleUniversityFactory {
 	
-	private static SingleUniversityFactory instance = new SingleUniversityFactory();
+	private static SingleUniversityFactory instance ;
 	String name;// - название университета ( валидация: min 3 .. max 30 )
 	private final int minNameLength = 3;
 	private final int maxNameLength = 30;
@@ -32,6 +32,8 @@ public class SingleUniversityFactory {
 	
 	//Это вызов сиглтона
 	public static SingleUniversityFactory getInstance() {
+		if (instance==null) {
+			 instance = new SingleUniversityFactory();}
 		return instance;
 	}
 	

@@ -58,11 +58,6 @@ public class Person implements PersonInterface {
 		 
 	}
 	
-	
-	
-	
-	
-
 	public Person() {
 	}
 
