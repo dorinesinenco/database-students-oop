@@ -7,7 +7,7 @@ import exceptions.ExperienceException;
 import exceptions.FullNameFormatException;
 import helpers.Validator;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements TeacherInterface{
 	Integer experience;// - опыт в годах ( валидация: min 1 .. max 40 )
 	ArrayList<Domains> domains;// - список направлений в которых он обучает ( валидация: min 1 .. )
 	final int maxExperience=40;

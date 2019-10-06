@@ -1,17 +1,25 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.HashSet;
+//import java.util.Locale;
 
-import com.github.javafaker.Faker;
+//import com.github.javafaker.Faker;
 
 import data.Domains;
+import data.FakeGroup;
+import data.FakePerson;
 import data.FakeStudent;
 import data.FakeTeacher;
 import data.Group;
-import data.SingleUniversityFactory;
+import data.GroupFactory;
+import data.Person;
+import data.PersonFactory;
+import data.SingleUniversity;
 import data.Student;
+import data.StudentFactory;
 import data.Teacher;
+import data.TeacherFactory;
 import exceptions.ExperienceException;
 import exceptions.FullNameFormatException;
 import exceptions.MarkException;
@@ -21,25 +29,45 @@ import exceptions.OutOfRangeException;
 public class Aplication {
 
 	public static void main(String[] args) throws FullNameFormatException, OutOfRangeException, MarkException, NullException, ExperienceException {
-		SingleUniversityFactory singleUniversityFactory = SingleUniversityFactory.getInstance();
+		SingleUniversity  singleUniversity = SingleUniversity.getInstance();
+		StudentFactory studentFactory = new StudentFactory();
 		
-		FakeStudent fSt = (FakeStudent)singleUniversityFactory.getNewPerson("FakeStudent");
+		FakeStudent fSt = (FakeStudent)studentFactory.getFakeStudent();
 		System.out.println(fSt);
 		
-		FakeTeacher fTh = (FakeTeacher)singleUniversityFactory.getNewPerson("FakeTeacher");
-		System.out.println(fTh);
-		
-		Student st= (Student)singleUniversityFactory.getNewPerson("Student");
+		Student st= (Student)studentFactory.getNewStudent();
 		Group group = new Group();
 		group.setName("Группа 1");
 		st.assign("Вася Пекус", 20f, 5.5f, group);
 		System.out.println(st);
 		
-		Teacher tch	= (Teacher)singleUniversityFactory.getNewPerson("Teacher");
+		
+		TeacherFactory teacherFactory = new TeacherFactory();
+
+		FakeTeacher fTh = (FakeTeacher)teacherFactory.getFakeTeacher();
+		System.out.println(fTh);
+
+		Teacher tch	= (Teacher)teacherFactory.getNewTracher();
 		ArrayList<Domains> domains = new ArrayList<>();
 		domains.add(Domains.MATHS);
 		tch.assign("Гульгуль Аглы", 23f, 2, domains);
 		System.out.println(tch);
+
+		
+		PersonFactory personFactory = new PersonFactory();
+
+		FakePerson fakePerson = (FakePerson)personFactory.getFakePerson();
+		System.out.println(fakePerson);
+		Person person =(Person)personFactory.getNewPerson();
+		System.out.println(person);
+		
+		GroupFactory groupFactory = new GroupFactory();
+		
+		FakeGroup fakeGroup = (FakeGroup)groupFactory.getFakeGroup();
+		System.out.println(fakeGroup);
+		Group group1 = (Group)groupFactory.getNewGroup();
+		group1.assign("Group Second", 6, new HashSet<Student>());
+		System.out.println(group1);
 		
 //		Faker faker= new Faker(new Locale("ru"));
 //		String name = faker.name().fullName();

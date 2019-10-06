@@ -10,10 +10,10 @@ public class Group implements GroupInterface{
 	String name;// - имя группы ( валидация: min 5 .. max 30 )
 	Integer year;// - год / курс ( валидация: min 1 .. max 7 )
 	HashSet<Student> students;// - ссылка на список студентов группы
-	private final int minNameLength = 5;
-	private final int maxNameLength = 30;
-	private final int minYear = 1;
-	private final int maxYear = 7;
+	public static final int minNameLength = 5;
+	public static final int maxNameLength = 30;
+	public static final int minYear = 1;
+	public static final int maxYear = 7;
 	
 	public Group(String name, Integer year, HashSet<Student> students) throws OutOfRangeException {
 		super();
@@ -70,6 +70,11 @@ public class Group implements GroupInterface{
 	public boolean removeStudent(Student student) throws NullException {
 		student.removeGroup();
 		return students.remove(student);
+	}
+	public void assign(String name,Integer year,HashSet<Student> students) throws OutOfRangeException {
+		setName(name);
+		setYear(year);
+		setStudents(students);
 	}
 	
 	

@@ -6,7 +6,7 @@ import exceptions.MarkException;
 import exceptions.NullException;
 import helpers.Validator;
 
-public class Student extends Person{
+public class Student extends Person implements StudentInterface{
 	Group group;// - группа в которой студент учится ( валидация: не может быть null )
 	Float mark;// - средняя годовая оценка ( валидация: 1.0 .. 10.0 )
 	static float minMark=1.0f;
