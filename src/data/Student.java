@@ -40,9 +40,13 @@ public class Student extends Person{
 			this.mark = mark;
 		else throw new MarkException("средняя годовая оценка ="+mark+" ( валидация: "+minMark+" .. "+maxMark+" )");
 	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
-		return "Student [group=" + group.getName() + ", mark=" + mark + "]";
+		return "Student [group=" + group + ", mark=" + mark + ", fullname=" + fullname + ", age=" + age + "]";
 	}
 	public void removeGroup() {
 		this.group=null;

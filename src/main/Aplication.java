@@ -6,7 +6,6 @@ import java.util.Locale;
 
 import com.github.javafaker.Faker;
 
-import data.FakeStudent;
 import data.*;
 import exceptions.OutOfRangeException;
 import exceptions.FullNameFormatException;
@@ -15,15 +14,16 @@ import exceptions.NullException;
 
 public class Aplication {
 
-	public static void main(String[] args) throws FullNameFormatException, OutOfRangeException {
-		SingleUniversityFactory f = SingleUniversityFactory.getInstance();
-		PersonInterface pers = f.getNewPerson("FakeTeacher");
-		//PersonInterface fakeTeacher = f.getNewPerson("FakeTeacher");
+	public static void main(String[] args) throws FullNameFormatException, OutOfRangeException, NullException, MarkException {
+		SingleUniversity f = SingleUniversity.getInstance();
+		StudentFactory studentFactory = new StudentFactory();
+		TeacherFactory teacherFactory = new TeacherFactory();
 		
-		if ((pers.getClass().getName()).equals("data.FakeStudent"))
-			System.out.println("Student: "+((FakeStudent)pers).getFullname()+" age:"+((FakeStudent)pers).getAge());
-		else if ((pers.getClass().getName()).equals("data.FakeTeacher"))
-			System.out.println("Teacher: "+((FakeTeacher)pers).getFullname()+" age:"+((FakeTeacher)pers).getAge());
+		FakeStudent fakeStudent = (FakeStudent) studentFactory.getFakeStudent();
+		FakeTeacher fakeTeacher = (FakeTeacher) teacherFactory.getFakeTeacher();
+		
+		System.out.println(fakeStudent);
+		System.out.println(fakeTeacher);
 	}
 	
 	
