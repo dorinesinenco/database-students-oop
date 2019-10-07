@@ -1,6 +1,6 @@
 package data;
 
-public class FakeStudent extends Student implements TeacherInterface{
+public class FakeStudent extends Student{
 
 	@Override
 	public String toString() {
