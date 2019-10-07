@@ -30,7 +30,7 @@ public class SingleUniversityFactory {
 		this.students = new ArrayList<>();
 	}
 	
-	//Это вызов сиглтона
+	//Это ленивый вызов сиглтона
 	public static SingleUniversityFactory getInstance() {
 		if (instance==null) {
 			 instance = new SingleUniversityFactory();}
